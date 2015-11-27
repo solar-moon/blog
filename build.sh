@@ -3,7 +3,8 @@ set -e
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-hugo && echo
+hugo
+echo
 
 cd ./public
 
