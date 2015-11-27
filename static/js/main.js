@@ -3220,10 +3220,11 @@ Number.prototype.pad = function (size) {
 };
 
 setInterval(function () {
-  diff = diff.subtract(_moment2.default.duration(1, 'ms'));
+  diff = diff.subtract(_moment2.default.duration(10, 'ms'));
   hh.innerHTML = diff.hours();
   mm.innerHTML = diff.minutes();
-  ss.innerHTML = diff.seconds().pad(2) + '.' + diff.milliseconds().pad(3);
-}, 1);
+  var hs = ~ ~(diff.milliseconds() / 10);
+  ss.innerHTML = diff.seconds().pad(2) + '.' + hs.pad(2);
+}, 10);
 
 },{"moment":1}]},{},[2]);
