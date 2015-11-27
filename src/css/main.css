@@ -17,9 +17,6 @@ html, body {
 
 body {
   font-family: 'Squarish Sans CT', 'Nova Square', Arial, sans-serif;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
