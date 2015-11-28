@@ -1,5 +1,7 @@
 language: node_js
 sudo: false
+node_js:
+  - stable
 before_script:
   - wget -Ohugo.tgz https://github.com/spf13/hugo/releases/download/v0.14/hugo_0.14_linux_amd64.tar.gz
   - tar xzf hugo.tgz
