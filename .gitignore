@@ -1,1 +1,4 @@
 /node_modules
+*.gzip
+static/**/*.js
+static/**/*.css
