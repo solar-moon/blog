@@ -2,8 +2,6 @@ import moment from "moment";
 
 const TARGET = moment('2015-11-28 19:00:00+0100').utc();
 
-let diff = moment(TARGET.diff(moment().utc())).utc();
-
 let hh = document.getElementById('H');
 let mm = document.getElementById('M');
 let ss = document.getElementById('s');
@@ -17,7 +15,7 @@ Number.prototype.pad = function(size) {
 }
 
 setInterval(() => {
-  diff = diff.subtract(moment.duration(10, 'ms'));
+  let diff = moment(TARGET.diff(moment().utc())).utc();
 
   let h = diff.hours();
   let m = diff.minutes();
@@ -29,4 +27,4 @@ setInterval(() => {
   hh.innerHTML = h.pad(2);
   mm.innerHTML = m.pad(2);
   ss.innerHTML = `${s.pad(2)}.${cs.pad(2)}`;
-}, 10);
+}, 30);
