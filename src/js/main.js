@@ -28,5 +28,5 @@ setInterval(() => {
   hh.innerHTML = h.pad(2);
   mm.innerHTML = m.pad(2);
   ss.innerHTML = s.pad(2);
-  cc.innerHTML = c.pad(2)}`;
+  cc.innerHTML = c.pad(2);
 }, 30);
