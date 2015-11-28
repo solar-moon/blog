@@ -1,12 +1,14 @@
 import moment from "moment";
 
-const TARGET = moment('2015-11-28 19:00:00');
+const TARGET = moment('2015-11-28 19:00:00+0100').utc();
 
-let diff = moment(TARGET.diff(moment()));
+let diff = moment(TARGET.diff(moment().utc())).utc();
 
 let hh = document.getElementById('H');
 let mm = document.getElementById('M');
 let ss = document.getElementById('s');
+
+let countdown = document.getElementById('countdown');
 
 Number.prototype.pad = function(size) {
   var s = String(this);
@@ -16,8 +18,15 @@ Number.prototype.pad = function(size) {
 
 setInterval(() => {
   diff = diff.subtract(moment.duration(10, 'ms'));
-  hh.innerHTML = diff.hours().pad(2);
-  mm.innerHTML = diff.minutes().pad(2);
-  let hs = ~~(diff.milliseconds() / 10);
-  ss.innerHTML = `${diff.seconds().pad(2)}.${hs.pad(2)}`;
+
+  let h = diff.hours();
+  let m = diff.minutes();
+  let cs = ~~(diff.milliseconds() / 10);
+  let s = diff.seconds();
+  if (h == 0 && m == 0 && s == 8 && cs < 61) {
+    countdown.play();
+  }
+  hh.innerHTML = h.pad(2);
+  mm.innerHTML = m.pad(2);
+  ss.innerHTML = `${s.pad(2)}.${cs.pad(2)}`;
 }, 10);

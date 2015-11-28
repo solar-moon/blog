@@ -3203,13 +3203,15 @@ var _moment2 = _interopRequireDefault(_moment);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TARGET = (0, _moment2.default)('2015-11-28 19:00:00');
+var TARGET = (0, _moment2.default)('2015-11-28 19:00:00+0100').utc();
 
-var diff = (0, _moment2.default)(TARGET.diff((0, _moment2.default)()));
+var diff = (0, _moment2.default)(TARGET.diff((0, _moment2.default)().utc())).utc();
 
 var hh = document.getElementById('H');
 var mm = document.getElementById('M');
 var ss = document.getElementById('s');
+
+var countdown = document.getElementById('countdown');
 
 Number.prototype.pad = function (size) {
   var s = String(this);
@@ -3221,10 +3223,17 @@ Number.prototype.pad = function (size) {
 
 setInterval(function () {
   diff = diff.subtract(_moment2.default.duration(10, 'ms'));
-  hh.innerHTML = diff.hours().pad(2);
-  mm.innerHTML = diff.minutes().pad(2);
-  var hs = ~ ~(diff.milliseconds() / 10);
-  ss.innerHTML = diff.seconds().pad(2) + '.' + hs.pad(2);
+
+  var h = diff.hours();
+  var m = diff.minutes();
+  var cs = ~ ~(diff.milliseconds() / 10);
+  var s = diff.seconds();
+  if (h == 0 && m == 0 && s == 8 && cs < 61) {
+    countdown.play();
+  }
+  hh.innerHTML = h.pad(2);
+  mm.innerHTML = m.pad(2);
+  ss.innerHTML = s.pad(2) + '.' + cs.pad(2);
 }, 10);
 
 },{"moment":1}]},{},[2]);
