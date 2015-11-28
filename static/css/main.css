@@ -47,3 +47,6 @@ body {
   vertical-align: middle;
   display: table-cell;
 }
+.hidden {
+  display: none !important;
+}
