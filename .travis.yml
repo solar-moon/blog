@@ -1,4 +1,4 @@
-language: node
+language: node_js
 sudo: false
 before_script:
   - wget -Ohugo.tgz https://github.com/spf13/hugo/releases/download/v0.14/hugo_0.14_linux_amd64.tar.gz
@@ -8,7 +8,6 @@ before_script:
   - git config --global user.name "SolarMoon"
   - git submodule foreach git checkout master
   - git submodule foreach git pull
-  - npm install
 script:
   - echo "$TRAVIS_BRANCH"
   - npm run build:js
