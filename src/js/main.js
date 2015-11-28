@@ -1,6 +1,6 @@
 import moment from "moment";
 
-const TARGET = moment('2015-11-28 21:00:00+0100').utc();
+const TARGET = moment('2015-11-28 21:30:00+0100').utc();
 
 let hh = document.getElementById('H');
 let mm = document.getElementById('M');
