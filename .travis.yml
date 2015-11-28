@@ -10,5 +10,6 @@ before_script:
   - git submodule foreach git pull
 script:
   - echo "$TRAVIS_BRANCH"
-  - npm run build
+  - npm run build:js
+  - npm run build:css
   - env PATH="$PATH:." bash ./build.sh
