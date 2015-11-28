@@ -3221,8 +3221,8 @@ Number.prototype.pad = function (size) {
 
 setInterval(function () {
   diff = diff.subtract(_moment2.default.duration(10, 'ms'));
-  hh.innerHTML = diff.hours();
-  mm.innerHTML = diff.minutes();
+  hh.innerHTML = diff.hours().pad(2);
+  mm.innerHTML = diff.minutes().pad(2);
   var hs = ~ ~(diff.milliseconds() / 10);
   ss.innerHTML = diff.seconds().pad(2) + '.' + hs.pad(2);
 }, 10);

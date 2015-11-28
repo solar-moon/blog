@@ -16,8 +16,8 @@ Number.prototype.pad = function(size) {
 
 setInterval(() => {
   diff = diff.subtract(moment.duration(10, 'ms'));
-  hh.innerHTML = diff.hours();
-  mm.innerHTML = diff.minutes();
+  hh.innerHTML = diff.hours().pad(2);
+  mm.innerHTML = diff.minutes().pad(2);
   let hs = ~~(diff.milliseconds() / 10);
   ss.innerHTML = `${diff.seconds().pad(2)}.${hs.pad(2)}`;
 }, 10);
